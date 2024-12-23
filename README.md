@@ -6,8 +6,8 @@ Make sure you have the following installed:
 Python 3.x
 pip (Python's package installer)
 Virtual Environment (optional but recommended)
-\n
-#Steps to Install
+
+# Steps to Install
 Clone the repository to your local machine:
 Copy code
 git clone https://github.com/your-username/Recipe_Management.git
