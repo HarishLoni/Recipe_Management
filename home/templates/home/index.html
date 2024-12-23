@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block start %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4 display-4">Delicious Recipes</h1>
+
+    <!-- Image Section with Quote -->
+    <div class="d-flex justify-content-center mb-4">
+        <div class="flex-shrink-0 me-4">
+            <img src="https://st3.depositphotos.com/13324256/17303/i/450/depositphotos_173034766-stock-photo-woman-writing-down-recipe.jpg" 
+                 alt="Woman writing down recipe" class="img-fluid shadow" 
+                 style="max-width: 400px; height: 300px; object-fit: cover; border-radius: 0.5rem;">
+        </div>
+        <div class="flex-shrink-0">
+            <img src="https://img.freepik.com/premium-photo/notebook-used-culinary-recipes-with-handwritten-notes-food-stains-illustrated-recipes_301716-7633.jpg?w=1380" 
+                 alt="Notebook of recipes" class="img-fluid shadow" 
+                 style="max-width: 400px; height: 300px; object-fit: cover; border-radius: 0.5rem;">
+        </div>
+    </div>
+    
+    <blockquote class="blockquote text-center mb-4" style="border: none; margin: 0; padding: 0;">
+        <p class="mb-0">"Good food is the foundation of genuine happiness."</p>
+        <footer class="blockquote-footer">Auguste Escoffier</footer>
+    </blockquote>
+
+    <div class="row mt-4">
+        {% for recipe in recipes %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow border-0">
+                <img src="{{ recipe.image_url }}" class="card-img-top" alt="{{ recipe.name }}" style="height: 200px; object-fit: cover; border-radius: 0.5rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.name }}</h5>
+                    <p class="card-text text-muted">{{ recipe.description|truncatewords:20 }}</p>
+                    <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary btn-block">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if recipes.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ recipes.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for num in recipes.paginator.page_range %}
+            <li class="page-item {% if recipes.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endfor %}
+            {% if recipes.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ recipes.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+<!-- Footer -->
+<footer class="bg-light text-center mt-5 py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2024 RecipeHub | All Rights Reserved</p>
+        <p class="mb-0">Created by Harish Loni</p>
+        <div>
+            <a href="/contact/" class="text-secondary">Contact Us</a> |
+            <a href="/about/" class="text-secondary">About</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    body {
+        background-color: #f7f9fc;
+        font-family: 'Arial', sans-serif;
+        overflow-x: hidden; /* Prevent horizontal scrollbar */
+        margin: 0; /* Remove default margin */
+    }
+
+    h1 {
+        color: #333;
+        font-weight: bold;
+    }
+
+    blockquote {
+        border: none; /* Remove the border */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove padding to avoid any gaps */
+        color: #555;
+        font-style: italic;
+    }
+
+    .shadow {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card {
+        transition: transform 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .pagination .page-link {
+        color: #007bff;
+    }
+
+    .pagination .page-link:hover {
+        color: #0056b3;
+    }
+
+    footer {
+        border-top: 1px solid #dee2e6;
+        background-color: #f8f9fa;
+    }
+
+    a {
+        color: #007bff;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+</style>
+{% endblock %}

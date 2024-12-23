@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+    <div class="container mt-5">
+        <h1 class="text-center">About Recipe Master</h1>
+        <p class="lead text-center">Your personal recipe management tool, created by Harish Loni!</p>
+        <hr>
+
+        <h3>Project Overview</h3>
+        <p>
+            Recipe Master is an innovative web application designed to make cooking accessible and enjoyable for everyone. 
+            Our platform offers a vast collection of recipes from various cuisines, ensuring that you find something to satisfy your culinary cravings. 
+            Whether you're looking for quick weeknight dinners, healthy meal prep ideas, or decadent desserts, Recipe Master has you covered!
+        </p>
+
+        <h3>Key Features:</h3>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Extensive Recipe Database:</strong> Browse a wide variety of recipes, from appetizers to desserts, with detailed instructions.</li>
+            <li class="list-group-item"><strong>User-friendly Interface:</strong> An intuitive design for easy navigation, making it simple to find and create recipes.</li>
+            <li class="list-group-item"><strong>Search Functionality:</strong> Quickly find recipes by ingredients, cuisine, dietary preferences, or cooking time.</li>
+            <li class="list-group-item"><strong>User Accounts:</strong> Create an account to save your favorite recipes, submit your own, and keep track of your culinary creations.</li>
+            <li class="list-group-item"><strong>Community Interaction:</strong> Share tips, leave feedback, and connect with other cooking enthusiasts through comments and ratings.</li>
+        </ul>
+
+        <h3>Why Choose Recipe Master?</h3>
+        <p>
+            At Recipe Master, we believe that cooking should be fun and approachable. Our platform is designed to inspire creativity in the kitchen, 
+            helping you discover new flavors and techniques. We curate our recipe collections to ensure quality and variety, 
+            so you can always find something exciting to try. 
+            Join our community of passionate cooks and elevate your culinary skills while enjoying the process!
+        </p>
+
+        <h3>Get Started!</h3>
+        <p>
+            Dive into the world of cooking with Recipe Master. Explore our extensive collection, save your favorites, 
+            and start cooking today! 
+            With just a few clicks, you can unlock a world of delicious possibilities.
+        </p>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary btn-lg">Home</a>
+            <a href="/contact/" class="btn btn-secondary btn-lg">Contact</a>
+        </div>
+    </div>
+
+    <style>
+        h1, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .lead {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #2980b9;
+        }
+
+        .list-group-item {
+            background-color: #f9f9f9;
+            border: 1px solid #dee2e6;
+            margin-bottom: 10px;
+        }
+
+        .list-group-item strong {
+            color: #2980b9;
+        }
+
+        .btn {
+            margin: 5px;
+            padding: 10px 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+{% endblock start %}
