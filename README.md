@@ -1,12 +1,12 @@
 ﻿# Recipe_Management
  A web application for managing and sharing a collection of recipes. The project allows users to add, view, edit, and share recipes with a user-friendly interface
-#Installation
-#Prerequisites
+# Installation
+# Prerequisites
 Make sure you have the following installed:
 Python 3.x
 pip (Python's package installer)
 Virtual Environment (optional but recommended)
-
+\n
 #Steps to Install
 Clone the repository to your local machine:
 Copy code
